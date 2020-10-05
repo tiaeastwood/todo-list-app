@@ -2,7 +2,7 @@
 const myNodelist = document.getElementsByTagName("LI");
 for (let i = 0; i < myNodelist.length; i++) {
   let span = document.createElement("span");
-  let trash = document.createTextNode("🗑️"); 
+  let trash = document.createTextNode("🗑️");
   span.className = "bin";
   span.appendChild(trash);
   myNodelist[i].appendChild(span);
@@ -32,22 +32,25 @@ taskButton.addEventListener("click", newTask)
 
 function newTask() {
   let li = document.createElement("li");
-  let inputValue = document.getElementById("myInput").value;
+  let inputValue = document.getElementById("textInput").value;
   let dateValue = document.getElementById("dateInput").value;
-  let textInput = document.createTextNode(dateValue + ' ' + inputValue);
+  let textInput = document.createTextNode(dateValue + ' - ' + inputValue);
   li.appendChild(textInput);
   if (inputValue === '') {
     alert("You didn't add a task!");
   } else {
     document.getElementById("taskList").appendChild(li);
   }
-  document.getElementById("myInput").value = "";
+  //clear the input boxes ready for a new task
+  document.getElementById("textInput").value = '';
+  document.getElementById("dateInput").value = '';
+
 
   // append the bin function after each new list item 
   let span = document.createElement("span");
-  let cross = document.createTextNode("🗑️");
+  let bin = document.createTextNode("🗑️");
   span.className = "bin";
-  span.appendChild(cross);
+  span.appendChild(bin);
   li.appendChild(span);
 
   for (let i = 0; i < bin.length; i++) {
@@ -57,3 +60,4 @@ function newTask() {
     }
   }
 }
+

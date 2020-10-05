@@ -10,6 +10,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+#taskApp {
+  margin: 0 auto;
+  width: 600px;
+  max-width: 100%;
+  border: 0px;
+  border-radius: 50px;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -22,12 +30,26 @@ ul li {
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
+  list-style-type: none;
 
     /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* add a tickbox before each list tiem */
+ul li:before {
+  content: '';
+  position: absolute;
+  border-color: #ff008f; 
+  border-style: solid;
+  border-width: 2px;
+  top: 10px;
+  left: 10px;
+  height: 15px;
+  width: 15px;
 }
 
 ul li:nth-child(odd) {

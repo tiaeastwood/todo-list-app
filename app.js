@@ -1,15 +1,15 @@
 // Create a "close" button and append it to each list item
-let myNodelist = document.getElementsByTagName("LI");
+const myNodelist = document.getElementsByTagName("LI");
 for (let i = 0; i < myNodelist.length; i++) {
   let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
+  let cross = document.createTextNode("\u00D7"); //unicode multiplication sign
   span.className = "close";
-  span.appendChild(txt);
+  span.appendChild(cross);
   myNodelist[i].appendChild(span);
 }
 
 // Click on a close button to hide the current list item
-let close = document.getElementsByClassName("close");
+const close = document.getElementsByClassName("close");
 for (let i = 0; i < close.length; i++) {
   close[i].onclick = function () {
     let div = this.parentElement;
@@ -18,7 +18,7 @@ for (let i = 0; i < close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-let list = document.querySelector('ul');
+const list = document.querySelector('ul');
 list.addEventListener('click', function (event) {
   if (event.target.tagName === 'LI') {
     event.target.classList.toggle('checked');
@@ -26,25 +26,26 @@ list.addEventListener('click', function (event) {
 }, false);
 
 // Create a new list item when clicking on the "Add" button
-let taskButton = document.getElementById('addBtn');
+const taskButton = document.getElementById('addBtn');
 taskButton.addEventListener("click", newTask)
 
 function newTask() {
   let li = document.createElement("li");
   let inputValue = document.getElementById("myInput").value;
-  let t = document.createTextNode(inputValue);
-  li.appendChild(t);
+  let textInput = document.createTextNode(inputValue);
+  li.appendChild(textInput);
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("You didn't write anything, silly!");
   } else {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
 
+  // append the close function after each new list item 
   let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
+  let cross = document.createTextNode("\u00D7"); 
   span.className = "close";
-  span.appendChild(txt);
+  span.appendChild(cross);
   li.appendChild(span);
 
   for (let i = 0; i < close.length; i++) {

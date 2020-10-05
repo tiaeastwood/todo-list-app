@@ -1,24 +1,25 @@
-// Create a "close" button and append it to each list item
+// Create a "bin" button and append it to each list item
 const myNodelist = document.getElementsByTagName("LI");
 for (let i = 0; i < myNodelist.length; i++) {
-  let span = document.createElement("SPAN");
-  let cross = document.createTextNode("\u00D7"); //unicode multiplication sign
-  span.className = "close";
-  span.appendChild(cross);
+  let span = document.createElement("span");
+  let trash = document.createTextNode("🗑️"); 
+  span.className = "bin";
+  span.appendChild(trash);
   myNodelist[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
-const close = document.getElementsByClassName("close");
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    let div = this.parentElement;
-    div.style.display = "none";
+
+// Click on bin button to delete the current list item
+const bin = document.getElementsByClassName("bin");
+const list = document.querySelector('ul');
+for (let i = 0; i < bin.length; i++) {
+  bin[i].onclick = function () {
+    let listItem = this.parentElement;
+    list.removeChild(listItem);
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
-const list = document.querySelector('ul');
+// toggle checked css 
 list.addEventListener('click', function (event) {
   if (event.target.tagName === 'LI') {
     event.target.classList.toggle('checked');
@@ -32,24 +33,25 @@ taskButton.addEventListener("click", newTask)
 function newTask() {
   let li = document.createElement("li");
   let inputValue = document.getElementById("myInput").value;
-  let textInput = document.createTextNode(inputValue);
+  let dateValue = document.getElementById("dateInput").value;
+  let textInput = document.createTextNode(dateValue + ' ' + inputValue);
   li.appendChild(textInput);
   if (inputValue === '') {
-    alert("You didn't write anything, silly!");
+    alert("You didn't add a task!");
   } else {
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("taskList").appendChild(li);
   }
   document.getElementById("myInput").value = "";
 
-  // append the close function after each new list item 
-  let span = document.createElement("SPAN");
-  let cross = document.createTextNode("\u00D7"); 
-  span.className = "close";
+  // append the bin function after each new list item 
+  let span = document.createElement("span");
+  let cross = document.createTextNode("🗑️");
+  span.className = "bin";
   span.appendChild(cross);
   li.appendChild(span);
 
-  for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
+  for (let i = 0; i < bin.length; i++) {
+    bin[i].onclick = function () {
       let div = this.parentElement;
       div.style.display = "none";
     }

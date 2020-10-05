@@ -11,22 +11,26 @@
     <body>
 
         <div id="taskApp">
-        <div class="header">
-            <h1>Tia's Todo List</h1>
-            <div id=input-area>
-            <input type="text" id="myInput" placeholder="Add an new task...">
-            <button id="addBtn">Add</button>
+            <div class="header">
+                <h1>Tia's Todo List</h1>
+                <p>Add a new task with an optional due date</p>
+                <div id=input-area>
+                    <input type="text" id="myInput" placeholder="Add an new task...">
+                    <input type="date" id="dateInput">
+                    <button id="addBtn">Add</button>
+                </div>
             </div>
+
+            <ul id="taskList">
+                <li>Feed the cat</li>
+                <li>2020-10-05 Write a blog entry</li>
+                <li>2020-10-05 Post a tweet</li>
+                <li>2020-10-05 Buy coffee</li>
+                <li>2020-10-05 Tidy desk</li>
+            </ul>
         </div>
 
-        <ul id="myUL">
-            <li>Feed the cat</li>
-            <li>Write a blog entry</li>
-            <li>Post a tweet</li>
-            <li>Buy coffee</li>
-            <li>Tidy desk</li>
-        </ul>
-        </div>
+                </div>
 
         <script src="./app.js"></script>
     </body>

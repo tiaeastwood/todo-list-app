@@ -143,3 +143,11 @@ button {
 button:hover {
  background-color: #b90069;  
 }
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .header h1 {
+    margin: 0 0 15px 0;
+    font-size: 1.8rem;
+}
+}
